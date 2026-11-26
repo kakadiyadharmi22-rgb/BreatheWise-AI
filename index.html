@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BreatheWise AI helps you understand urban air quality and make informed outdoor decisions.">
+  <title>BreatheWise AI | Urban Air Quality Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">B</span><span>BreatheWise<span class="brand-ai"> AI</span><small>URBAN AIR QUALITY ASSISTANT</small></span></a>
+    <nav><a href="#dashboard">Dashboard</a><a href="#insights">Insights</a><a href="#guidance">Health guidance</a></nav>
+    <span class="live-pill"><i></i> LIVE DATA</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">BREATHE BETTER. LIVE SMARTER.</p>
+        <h1>Know the air.<br><span>Protect your day.</span></h1>
+        <p class="hero-sub">Understand your city's air quality with clear, real-time readings and practical guidance for everyday decisions.</p>
+        <a class="primary-link" href="#dashboard">Explore air quality <span>↓</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="sun"></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="city"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="leaf leaf-one">✦</div><div class="leaf leaf-two">✧</div>
+        <div class="air-card"><span>YOUR AIR, IN FOCUS</span><strong>01</strong><small>Check. Understand. Act.</small></div>
+      </div>
+    </section>
+
+    <section class="section" id="dashboard">
+      <div class="section-heading">
+        <div><p class="eyebrow">AIR QUALITY MONITOR</p><h2>City dashboard</h2><p class="muted">Live readings from Open-Meteo's air quality service.</p></div>
+        <form id="searchForm" class="search"><span>⌕</span><input id="cityInput" type="text" placeholder="Search a city (e.g. Surat)" aria-label="Search city"><button type="submit">Search</button></form>
+      </div>
+      <div id="status" class="status" role="status">Loading air quality data…</div>
+      <div class="dashboard-grid">
+        <article class="panel aqi-panel">
+          <div class="panel-top"><span class="panel-label">CURRENT US AQI</span><span class="tiny-dot"></span></div>
+          <div class="aqi-content"><div id="aqiNumber" class="aqi-number">--</div><div><span id="aqiLabel" class="aqi-label">Loading</span><p id="aqiAdvice" class="aqi-advice">Fetching the latest available reading.</p></div></div>
+          <div class="aqi-scale"><span>Good</span><span>Moderate</span><span>Unhealthy</span><span>Very unhealthy</span></div>
+          <div class="scale-track"><span id="scaleMarker"></span></div>
+          <div class="location-line"><span>⌖</span><strong id="locationName">Ahmedabad, India</strong><span id="updatedAt">—</span></div>
+        </article>
+        <article class="panel weather-panel">
+          <div class="panel-label">POLLUTANT SNAPSHOT</div>
+          <div class="pollutant-grid">
+            <div class="pollutant"><span>PM2.5</span><strong id="pm25">--</strong><small>µg/m³</small></div>
+            <div class="pollutant"><span>PM10</span><strong id="pm10">--</strong><small>µg/m³</small></div>
+            <div class="pollutant"><span>NO₂</span><strong id="no2">--</strong><small>µg/m³</small></div>
+            <div class="pollutant"><span>O₃</span><strong id="o3">--</strong><small>µg/m³</small></div>
+            <div class="pollutant"><span>SO₂</span><strong id="so2">--</strong><small>µg/m³</small></div>
+            <div class="pollutant"><span>CO</span><strong id="co">--</strong><small>µg/m³</small></div>
+          </div>
+        </article>
+      </div>
+      <p class="data-note">Data availability and update frequency depend on the upstream provider. Values are informational, not a substitute for official local advisories.</p>
+    </section>
+
+    <section class="section insight-section" id="insights">
+      <div class="section-heading"><div><p class="eyebrow">UNDERSTAND THE NUMBERS</p><h2>What does your air mean?</h2></div></div>
+      <div class="insight-grid">
+        <article class="info-card"><div class="info-icon">◌</div><h3>Fine particles · PM2.5</h3><p>Tiny particles that can travel deep into the lungs. Higher readings deserve extra attention, especially for sensitive groups.</p></article>
+        <article class="info-card"><div class="info-icon">◎</div><h3>Coarse particles · PM10</h3><p>Includes dust and larger particles. Construction, road dust and some industrial activities can contribute.</p></article>
+        <article class="info-card"><div class="info-icon">⌁</div><h3>Gases · NO₂, O₃, SO₂</h3><p>Different gases come from sources such as traffic, sunlight-driven chemical reactions and fuel combustion.</p></article>
+      </div>
+    </section>
+
+    <section class="section guidance-section" id="guidance">
+      <div class="guidance-copy"><p class="eyebrow">SMART DAILY GUIDANCE</p><h2>Small choices.<br><span>Healthier habits.</span></h2><p class="muted">Recommendations update based on the selected city's current US AQI reading.</p></div>
+      <div class="guidance-panel panel">
+        <div class="guidance-head"><span class="panel-label">YOUR AIR QUALITY BRIEF</span><span class="spark">✦</span></div>
+        <h3 id="guidanceTitle">Your daily air brief is getting ready</h3>
+        <p id="guidanceText">Search for a city to receive practical guidance based on its latest available air quality reading.</p>
+        <ul id="guidanceList"><li>Check local advisories before outdoor activity.</li><li>People with respiratory or heart conditions should follow their clinician's advice.</li></ul>
+        <p class="disclaimer">General information only. Follow local public-health guidance and seek medical advice for personal health concerns.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">B</span><span>BreatheWise<span class="brand-ai"> AI</span><small>URBAN AIR QUALITY ASSISTANT</small></span></a><p>Built for cleaner, more informed city living.</p><span>Air data: Open-Meteo · <span id="year"></span></span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
